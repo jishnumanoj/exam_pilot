@@ -21,6 +21,8 @@ from accounts.views import FacultySignUpView,FacultyProfileRetrieveUpdateView
 
 from assessment_management.views import AssessmentListCreateView,AssessmentRetrieveUpdateDeleteView
 
+from question_management.views import QuestionCreateView,QuestionRetrieveUpdateDeleteView
+
 from rest_framework.authtoken.views import ObtainAuthToken
 
 urlpatterns = [
@@ -35,7 +37,9 @@ urlpatterns = [
     path('assessments/',AssessmentListCreateView.as_view()),
     path('assessments/<int:pk>/',AssessmentRetrieveUpdateDeleteView.as_view()),
 
-    
+    #questions
+    path('assessment/<int:pk>/questions/',QuestionCreateView.as_view()),
+    path('question/<int:pk>/',QuestionRetrieveUpdateDeleteView.as_view()),
 
 
 ]
