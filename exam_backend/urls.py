@@ -19,9 +19,9 @@ from django.urls import path
 
 from accounts.views import FacultySignUpView,FacultyProfileRetrieveUpdateView
 
+from assessment_management.views import AssessmentListCreateView,AssessmentRetrieveUpdateDeleteView
+
 from rest_framework.authtoken.views import ObtainAuthToken
-
-
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,5 +31,11 @@ urlpatterns = [
     path('token/',ObtainAuthToken.as_view()),
     path('faculty/profile/',FacultyProfileRetrieveUpdateView.as_view()),
 
+    #assessments
+    path('assessments/',AssessmentListCreateView.as_view()),
+    path('assessments/<int:pk>/',AssessmentRetrieveUpdateDeleteView.as_view()),
+
     
+
+
 ]
